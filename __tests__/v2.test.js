@@ -33,14 +33,14 @@ describe('v2 tests', () => {
   });
 
   test('Get all test', async () => {
-    let response =  await request.get('/api/v2/food').set('Authorization', `Bearer ${adminTest.token}`);
+    let response =  await request.get('/api/v2/food').auth('admin', 'admin');
 
     expect(response.status).toEqual(200)
     expect(response.body[0].name).toEqual('testing');
   });
 
   test('Get one test', async () => {
-    let response = await request.get('/api/v2/food/1').set('Authorization', `Bearer ${adminTest.token}`);
+    let response = await request.get('/api/v2/food/1').auth('admin', 'admin');
 
     expect(response.status).toEqual(200);
     expect(response.body.name).toEqual('testing');

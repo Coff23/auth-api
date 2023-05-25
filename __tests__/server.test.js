@@ -33,4 +33,4 @@ describe('Server', () => {
     expect(response.body.user.username).toEqual('Test');
   });
 
-})
+});
