@@ -11,9 +11,11 @@ const authRoutes = require('./auth/routes.js');
 
 
 const v1Routes = require('./routes/v1.js');
+const v2Routes = require('./routes/v2.js');
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -21,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(logger);
 
 app.use('/api/v1', v1Routes);
+app.use('/api/v2', v2Routes);
 app.use(authRoutes);
 
 
